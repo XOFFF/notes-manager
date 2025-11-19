@@ -2,6 +2,8 @@
 
 Notes Manager is a web application for managing notes, built with **ASP.NET MVC**.
 
+![Screenshot of Notes Manager](https://media.licdn.com/dms/image/v2/D4D22AQEF-VvPOw4qTg/feedshare-shrink_2048_1536/B4DZqbszNSJIAw-/0/1763548804452?e=1765411200&v=beta&t=Ox_MQXJa5P9QgKp6HtnAfJeGDVATbm9ANRjN25Bs37M)
+
 ---
 
 ## Technology Stack
