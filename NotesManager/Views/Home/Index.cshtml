@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Notes Manager";
+}
+
+@model IEnumerable<NotesManager.Models.Note>
+
+@{
+    var selectedId = 0;
+    if (Context.Request.Query.ContainsKey("id"))
+    {
+        int.TryParse(Context.Request.Query["id"], out selectedId);
+    }
+
+    var createNew = Context.Request.Query["create"] == "true";
+
+    NotesManager.Models.Note selectedNote = null;
+    
+    if (createNew)
+    {
+        selectedNote = new NotesManager.Models.Note();
+    }
+    else if (selectedId != 0)
+    {
+        selectedNote = Model.FirstOrDefault(n => n.Id == selectedId);
+    }
+}
+
+<div class="container-fluid">
+    <div class="panels-container
+            row d-flex overflow-hidden">
+        <div class="left-panel col-3 p-3 overflow-auto">
+            @await Html.PartialAsync("_LeftPanel", Model)
+        </div>
+        <div class="col-9 flex-grow-1 p-3  overflow-auto">
+            @await Html.PartialAsync("_RightPanel", selectedNote)
+        </div>
+    </div>
+</div>
+

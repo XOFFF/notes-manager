@@ -1,0 +1,18 @@
+﻿@model IEnumerable<NotesManager.Models.Note>
+
+<h5 class="d-flex justify-content-between align-items-center mb-3">
+    Notes
+    <a href="/Home/Index?create=true" class="btn btn-primary btn-sm">+ Create</a>
+</h5>
+
+<ul class="list-group">
+    @foreach (var note in Model.OrderByDescending(n => n.CreatedAd))
+    {
+        <li class="list-group-item">
+            <a href="?id=@note.Id" class="note-item text-decoration-none d-block p-2">
+                @note.Title
+            </a>
+
+        </li>
+    }
+</ul>
